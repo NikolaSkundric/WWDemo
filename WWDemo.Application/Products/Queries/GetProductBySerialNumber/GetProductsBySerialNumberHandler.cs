@@ -9,7 +9,12 @@ namespace WWDemo.Application.Products.Queries.GetProductBySerialNumber
     {
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
-        public async Task<ProductRepresentation> Handle(GetProductBySerialNumberQuery request, CancellationToken cancellationToken)
+        public GetProductsBySerialNumberHandler(IProductRepository productRepository, IMapper mapper)
+        {
+            _productRepository = productRepository;
+            _mapper = mapper;
+        }
+       public async Task<ProductRepresentation> Handle(GetProductBySerialNumberQuery request, CancellationToken cancellationToken)
         {
 
             var queryResult = await _productRepository.GetProductBySerialNumber(request.SerialNumber);
