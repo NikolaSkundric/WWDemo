@@ -5,6 +5,6 @@ namespace WWDemo.Application.Products.Queries.GetProductBySerialNumber
 {
     public class GetProductBySerialNumberQuery : IRequest<ProductRepresentation>
     {
-        string? SerialNumber;
+        string? SerialNumber { get; set; }
     }
 }
