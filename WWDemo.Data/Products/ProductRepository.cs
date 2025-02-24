@@ -12,9 +12,9 @@ namespace WWDemo.Data.Products
             _apiDbContext = apiDbContext;
         }
 
-        public Task<List<Product?>> GetProductBySerialNumber(string SerialNumber)
+        public Task<Product?> GetProductBySerialNumber(string SerialNumber)
         {
-            return GetQueryable().Where(x => x!.SerialNumber == SerialNumber).ToListAsync();
+            return GetQueryable().FirstOrDefaultAsync(x => x!.SerialNumber == SerialNumber);
         }
 
         public Task<List<Product?>> GetAllProducts()

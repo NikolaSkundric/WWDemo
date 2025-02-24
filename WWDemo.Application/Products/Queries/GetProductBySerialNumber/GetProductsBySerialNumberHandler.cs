@@ -1,13 +1,20 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using WWDemo.Application.DTOs;
+using WWDemo.Data.Products;
 
 namespace WWDemo.Application.Products.Queries.GetProductBySerialNumber
 {
     public class GetProductsBySerialNumberHandler : IRequestHandler<GetProductBySerialNumberQuery, ProductRepresentation>
     {
-        public Task<ProductRepresentation> Handle(GetProductBySerialNumberQuery request, CancellationToken cancellationToken)
+        private readonly IProductRepository _productRepository;
+        private readonly IMapper _mapper;
+        public async Task<ProductRepresentation> Handle(GetProductBySerialNumberQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+
+            var queryResult = await _productRepository.GetProductBySerialNumber(request.SerialNumber);
+            var mappedResult = _mapper.Map<ProductRepresentation>(queryResult);
+            return mappedResult;
         }
     }
 }
