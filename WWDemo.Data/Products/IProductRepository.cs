@@ -14,6 +14,8 @@ namespace WWDemo.Data.Products
 
         Task<Product?> GetProductBySerialNumber(string SerialNumber);
 
+        Task<Product?> GetProductByCategory(string category);
+
         Task<Product?> GetProductByName(string name);
     }
 }
