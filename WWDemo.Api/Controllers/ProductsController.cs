@@ -51,6 +51,13 @@ namespace WWDemo.Api.Controllers
 			return Ok();
 		}
 
+		[HttpGet("category")]
+		public async Task<IActionResult> GetProductByCategory([FromRoute(Name = "category")]string category)
+		{
+			// TO BE IMPLEMENTED
+			return Ok();
+		}
+
 		[HttpDelete]
 		public async Task<IActionResult> DeleteProduct()
 		{
