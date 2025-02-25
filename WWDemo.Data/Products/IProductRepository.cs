@@ -18,5 +18,6 @@ namespace WWDemo.Data.Products
 
         Task<Product?> GetProductByName(string name);
         Task<Product?> GetProductByAmount(uint amount);
+        Task<List<Product>> GetProductsByPrice(string price);
     }
 }

@@ -49,6 +49,12 @@ namespace WWDemo.Api.Controllers
 			return result;
 		}
 
+		[HttpGet]
+		public async Task<List<ProductRepresentation>> GetProductsByPrice() 
+		{
+			return new List<ProductRepresentation>(); //TO BE IMPLEMENTED
+		}
+
 		[HttpGet("serial-number")]
 		public async Task<IActionResult> GetProductBySerialNumber([FromRoute(Name = "serial-number")]string serialNumber)
 		{

@@ -67,5 +67,10 @@ namespace WWDemo.Data.Products
             var result = await _apiDbContext.Products.FirstOrDefaultAsync(x => x!.Amount == amount);
             return result;
         }
+
+        public async Task<List<Product>> GetProductsByPrice(string price)
+        {
+            return await _apiDbContext.Products.Where(x => x!.Price == price).ToListAsync();
+        }
     }
 }
