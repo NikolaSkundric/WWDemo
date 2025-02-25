@@ -63,7 +63,7 @@ namespace WWDemo.Data.Products
             return result;
         }
 
-        public async Task<List<Product>> GetProductByAmount(uint? amount)
+        public async Task<List<Product>> GetProductsByAmount(uint? amount)
         {
             var result = await _apiDbContext.Products.Where(x => x!.Amount == amount).ToListAsync();
             return result;
