@@ -13,7 +13,7 @@ namespace WWDemo.Application.Products.Queries.GetProductsByPrice
 {
     public class GetProductsByPriceHandler : IRequestHandler<GetProductsByPriceQuery, List<ProductRepresentation>>
     {
-        private readonly Mapper mapper;
+        private readonly IMapper mapper;
         private readonly IProductRepository productRepository;
         public GetProductsByPriceHandler(IMapper mapper, IProductRepository productRepository)
         {
