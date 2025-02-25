@@ -51,8 +51,8 @@ namespace WWDemo.Api.Controllers
 			return Ok();
 		}
 
-		[HttpGet("id")]
-		public async Task<IActionResult> GetProductById([FromRoute(Name = "id")]Guid Id)
+		[HttpGet("category")]
+		public async Task<IActionResult> GetProductByCategory([FromRoute(Name = "category")]string category)
 		{
 			// TO BE IMPLEMENTED
 			return Ok();
