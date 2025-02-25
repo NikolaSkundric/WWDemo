@@ -6,6 +6,8 @@ using WWDemo.Application.Products.Commands.AddProduct;
 using WWDemo.Application.Products.Queries.GetAllProducts;
 using WWDemo.Application.Products.Queries.GetProductBySerialNumber;
 using WWDemo.Application.Products.Queries.GetProductsByPrice;
+using WWDemo.Application.Products.Queries.GetProductByCategory;
+using WWDemo.Application.Products.Queries.GetProductsByAmount;
 
 namespace WWDemo.Api.Controllers
 {
@@ -69,15 +71,15 @@ namespace WWDemo.Api.Controllers
 		[HttpGet("category")]
 		public async Task<IActionResult> GetProductByCategory([FromRoute(Name = "category")]string category)
 		{
-			// TO BE IMPLEMENTED
-			return Ok();
+			var result = await _mediator.Send(new GetProductByCategoryQuery() { Category = category });
+			return Ok(result);
 		}
 
 		[HttpGet("amount")]
-		public async Task<IActionResult> GetProductByAmount([FromRoute(Name = "amount")]uint amount)
+		public async Task<IActionResult> GetProductsByAmount([FromRoute(Name = "amount")]uint? amount)
 		{
-			// TO BE IMPLEMENTED
-			return Ok();
+			var result = await _mediator.Send(new GetProductsByAmountQuery() { Amount = amount });
+			return Ok(result);
 		}
 
 		[HttpDelete]

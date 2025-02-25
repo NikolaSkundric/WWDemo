@@ -27,9 +27,10 @@ namespace WWDemo.Data.Products
             return GetQueryable().FirstOrDefaultAsync(x => x!.Id == productId);
         }
 
-        public Task<Product?> GetProductByCategory(string productCategory)
+        public async Task<List<Product>> GetProductByCategory(string productCategory)
         {
-            return GetQueryable().FirstOrDefaultAsync(x => x!.Category == productCategory);
+            var result = await _apiDbContext.Products.Where(x => x!.Category == productCategory).ToListAsync();
+            return result;
         }
 
         public async Task<Product?> AddProduct(Product product)
@@ -62,9 +63,9 @@ namespace WWDemo.Data.Products
             return result;
         }
 
-        public async Task<Product?> GetProductByAmount(uint amount)
+        public async Task<List<Product>> GetProductByAmount(uint? amount)
         {
-            var result = await _apiDbContext.Products.FirstOrDefaultAsync(x => x!.Amount == amount);
+            var result = await _apiDbContext.Products.Where(x => x!.Amount == amount).ToListAsync();
             return result;
         }
 
