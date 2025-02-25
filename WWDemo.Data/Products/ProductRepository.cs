@@ -61,5 +61,11 @@ namespace WWDemo.Data.Products
             var result = await _apiDbContext.Products.FirstOrDefaultAsync(x => x!.Name == name);
             return result;
         }
+
+        public async Task<Product?> GetProductByAmount(uint amount)
+        {
+            var result = await _apiDbContext.Products.FirstOrDefaultAsync(x => x!.Amount == amount);
+            return result;
+        }
     }
 }
