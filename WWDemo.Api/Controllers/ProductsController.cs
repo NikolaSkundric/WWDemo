@@ -5,6 +5,7 @@ using WWDemo.Application.DTOs;
 using WWDemo.Application.Products.Commands.AddProduct;
 using WWDemo.Application.Products.Queries.GetAllProducts;
 using WWDemo.Application.Products.Queries.GetProductBySerialNumber;
+using WWDemo.Application.Products.Queries.GetProductsByPrice;
 
 namespace WWDemo.Api.Controllers
 {
@@ -50,9 +51,11 @@ namespace WWDemo.Api.Controllers
 		}
 
 		[HttpGet]
-		public async Task<List<ProductRepresentation>> GetProductsByPrice() 
+		public async Task<IActionResult> GetProductsByPrice(string price) 
 		{
-			return new List<ProductRepresentation>(); //TO BE IMPLEMENTED
+			var results  = await _mediator.Send(new GetProductsByPriceQuery() { Price = price })
+
+            return Ok(results);
 		}
 
 		[HttpGet("serial-number")]
@@ -60,7 +63,7 @@ namespace WWDemo.Api.Controllers
 		{
             var result = await _mediator.Send(new GetProductBySerialNumberQuery() { SerialNumber = serialNumber });// map serial number
             
-			return Ok();
+			return Ok(result);
 		}
 
 		[HttpGet("category")]
