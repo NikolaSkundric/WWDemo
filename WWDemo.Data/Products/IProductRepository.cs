@@ -17,5 +17,6 @@ namespace WWDemo.Data.Products
         Task<Product?> GetProductByCategory(string category);
 
         Task<Product?> GetProductByName(string name);
+        Task<List<Product>> GetProductsByPrice(string price);
     }
 }
