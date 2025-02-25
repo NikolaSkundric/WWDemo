@@ -48,8 +48,13 @@ namespace WWDemo.Data.Products
         private IQueryable<Product?> GetQueryable()
         {
             var products = _apiDbContext.Products;
-
             return products;
+        }
+
+        public async Task<Product?> GetProductByName(string name)
+        {
+            var result = await _apiDbContext.Products.FirstOrDefaultAsync(x => x!.Name == name);
+            return result;
         }
     }
 }
