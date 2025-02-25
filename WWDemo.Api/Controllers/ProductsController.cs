@@ -51,6 +51,13 @@ namespace WWDemo.Api.Controllers
 			return Ok();
 		}
 
+		[HttpGet("id")]
+		public async Task<IActionResult> GetProductById([FromRoute(Name = "id")]Guid Id)
+		{
+			// TO BE IMPLEMENTED
+			return Ok();
+		}
+
 		[HttpDelete]
 		public async Task<IActionResult> DeleteProduct()
 		{
