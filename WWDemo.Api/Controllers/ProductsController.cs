@@ -35,6 +35,12 @@ namespace WWDemo.Api.Controllers
         }
 
 		[HttpGet]
+		public async Task<IActionResult> GetProductByName([FromRoute(Name = "name")]string name) 
+		{
+			return Ok(); //TO BE IMPLEMENTED
+		}
+
+		[HttpGet]
         [ProducesResponseType(typeof(List<ProductRepresentation>), StatusCodes.Status200OK)]
         public async Task<List<ProductRepresentation>> GetAllProducts()
 		{
