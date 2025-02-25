@@ -70,6 +70,13 @@ namespace WWDemo.Api.Controllers
 			return Ok();
 		}
 
+		[HttpGet("amount")]
+		public async Task<IActionResult> GetProductByAmount([FromRoute(Name = "amount")]uint amount)
+		{
+			// TO BE IMPLEMENTED
+			return Ok();
+		}
+
 		[HttpDelete]
 		public async Task<IActionResult> DeleteProduct()
 		{
